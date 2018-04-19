@@ -1,0 +1,26 @@
+@import "./variables.scss";
+
+.progress {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  z-index: 1;
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  &.red circle{
+    stroke: $red !important;
+  }
+  &.orange circle{
+    stroke: $orange !important;
+  }
+  &.green circle{
+    stroke: $green !important;
+  }
+}
+
+@media screen and (max-width: $small-screen) {
+  .progress {
+    top: -4px;
+    left: -4px;
+  }
+}

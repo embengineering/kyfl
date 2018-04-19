@@ -1,0 +1,65 @@
+@import "./variables.scss";
+
+.widget {
+  width: 450px;
+  height: 135px;
+  margin: 15px;
+  padding: 20px 5px;
+
+  &.red {
+      border-left: 4px solid $red;
+  }
+  &.orange {
+      border-left: 4px solid $orange;
+  }
+  &.green {
+      border-left: 4px solid $green;
+  }
+
+  .widget-header {
+    height: auto !important;
+    display: flex;
+    align-items: center;
+
+    .widget-iconmenu {
+        position: absolute !important;
+        right: 0;
+        z-index: 2;
+    }
+  }
+
+  .widget-title,
+  .widget-subtitle {
+      font-size: 1.5em;
+  }
+  .widget-subtitle{
+    span{
+      &.red{
+        color: $red;
+      }
+      &.orange{
+        color: $orange;
+      }
+      &.green{
+        color: $green;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: $small-screen) {
+  .widget {
+    height: auto;
+    padding: 5px 0;
+
+    .widget-header {
+      padding: 5px !important;
+    }
+
+    .widget-title,
+    .widget-subtitle {
+        font-size: 1em;
+    }
+  }
+}
