@@ -1,7 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900,300italic,400italic,500italic,700italic,900italic);
-@import "~toastr/toastr";
-@import "~animate.css/animate";
-@import "./variables.scss";
+@import "toastr/toastr";
+@import "animate.css/animate";
+@import "scss/variables.scss";
 
 body {
 	padding: 0;

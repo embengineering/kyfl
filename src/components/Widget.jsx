@@ -2,7 +2,7 @@
 import React from 'react';
 
 // styling
-import '../scss/widget.scss';
+import '../scss/widget.css';
 
 // child component
 import Progress from '../components/Progress.jsx';
@@ -15,7 +15,6 @@ import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import Divider from 'material-ui/Divider';
-import FontIcon from 'material-ui/FontIcon';
 
 const Widget = ({
     widgetData,
@@ -48,23 +47,23 @@ const Widget = ({
       >
         <MenuItem
           primaryText="Increase"
-          leftIcon={<FontIcon className="fa fa-arrow-circle-up" />}
-          onTouchTap={onIncrease}
+          leftIcon={<i className="material-icons">keyboard_arrow_up</i>}
+          onClick={onIncrease}
         />
         <MenuItem
           primaryText="Decrease"
-          leftIcon={<FontIcon className="fa fa-arrow-circle-down" />}
-          onTouchTap={onDecrease}
+          leftIcon={<i className="material-icons">keyboard_arrow_down</i>}
+          onClick={onDecrease}
         />
         <MenuItem
           primaryText="Take Ownership"
-          leftIcon={<FontIcon className="fa fa-bullhorn" />}
-          onTouchTap={onTakeOwnership}
+          leftIcon={<i className="material-icons">face</i>}
+          onClick={onTakeOwnership}
         />
         <MenuItem
           primaryText="Remove"
-          leftIcon={<FontIcon className="fa fa-warning" />}
-          onTouchTap={onRemove}
+          leftIcon={<i className="material-icons">delete_forever</i>}
+          onClick={onRemove}
         />
         <Divider />
         <MenuItem primaryText="Cancel" />

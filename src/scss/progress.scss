@@ -1,9 +1,9 @@
-@import "./variables.scss";
+@import "scss/variables.scss";
 
 .progress {
   position: absolute;
-  top: 7px;
-  left: 7px;
+  top: 12px;
+  left: 16px;
   z-index: 1;
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);

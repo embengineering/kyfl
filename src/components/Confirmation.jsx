@@ -17,12 +17,12 @@ const Confirmation = ({
         label="Cancel"
         secondary
         keyboardFocused
-        onTouchTap={handleCancel}
+        onClick={handleCancel}
       />,
       <FlatButton
         label="Confirm"
         primary
-        onTouchTap={handleConfirm}
+        onClick={handleConfirm}
       />,
     ];
 

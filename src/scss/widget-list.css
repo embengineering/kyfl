@@ -1,0 +1,6 @@
+.widget-list-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px auto;
+  max-width: 1024px; }

@@ -3,7 +3,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 // app specific
-import '../scss/dashboard.scss';
+import '../scss/dashboard.css';
 import * as widgetListActions from '../actions/widgetListActions';
 import * as goalActions from '../actions/goalActions';
 import WidgetList from '../components/WidgetList.jsx';

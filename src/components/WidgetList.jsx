@@ -1,5 +1,5 @@
 import React from 'react';
-import '../scss/widget-list.scss';
+import '../scss/widget-list.css';
 
 import Widget from '../components/Widget.jsx';
 

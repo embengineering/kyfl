@@ -1,15 +1,6 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-// import App from './App';
-// import registerServiceWorker from './registerServiceWorker';
-
-// ReactDOM.render(<App />, document.getElementById('root'));
-// registerServiceWorker();
-
 // misc
 import 'babel-polyfill';
-// import './scss/main.scss';
+import './scss/main.css';
 import './utils/dateUtils';
 import './utils/firebase';
 
@@ -27,10 +18,13 @@ import * as widgetListActions from './actions/widgetListActions';
 
 // components
 import AppContainer from './containers/AppContainer.jsx';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 ReactDOM.render(
   <Provider store={store}>
-    <AppContainer />
+    <MuiThemeProvider>
+      <AppContainer />
+    </MuiThemeProvider>
   </Provider>,
   document.getElementById('root')
 );

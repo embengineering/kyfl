@@ -1,6 +1,6 @@
 // misc
 import React from 'react';
-import '../scss/form.scss';
+import '../scss/form.css';
 
 // ui-library
 import Dialog from 'material-ui/Dialog';
@@ -25,7 +25,7 @@ const ManageGoal = ({
     modal
     open={isVisible}
   >
-    <Formsy.Form
+    <Formsy
       onValid={handleValidForm}
       onInvalid={handleInvalidForm}
       onValidSubmit={handleSubmitForm}
@@ -54,7 +54,7 @@ const ManageGoal = ({
         <FlatButton
           label="Cancel"
           secondary={true}
-          onTouchTap={handleCancel}
+          onClick={handleCancel}
         />
         <FlatButton
           disabled={!canSubmit}
@@ -64,7 +64,7 @@ const ManageGoal = ({
           keyboardFocused={true}
         />
       </div>
-    </Formsy.Form>
+    </Formsy>
   </Dialog>
 );
 

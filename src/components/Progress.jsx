@@ -1,5 +1,5 @@
 import React from 'react';
-import '../scss/progress.scss';
+import '../scss/progress.css';
 
 // material-ui components
 import CircularProgress from 'material-ui/CircularProgress';
@@ -9,7 +9,7 @@ const Progress = ({progressData}) => (
      <CircularProgress
        mode="determinate"
        value={progressData.percentComplete}
-       size={1.1}
+       size={64}
      />
   </div>
 );

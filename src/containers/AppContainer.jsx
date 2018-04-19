@@ -6,15 +6,14 @@ import AppBarContainer from '../containers/AppBarContainer.jsx';
 import DashboardContainer from '../containers/DashboardContainer.jsx';
 import NotificationContainer from '../containers/NotificationContainer.jsx';
 import ConfirmationContainer from '../containers/ConfirmationContainer.jsx';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const App = () => (
-  <MuiThemeProvider>
+  <div>
     <AppBarContainer />
     <DashboardContainer />
     <NotificationContainer />
     <ConfirmationContainer />
-  </MuiThemeProvider>
+  </div>
 );
 
 export default App;

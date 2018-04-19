@@ -9,7 +9,6 @@ import IconMenu from 'material-ui/IconMenu';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import MenuItem from 'material-ui/MenuItem';
 import Divider from 'material-ui/Divider';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const AppMainBar = ({auth, onLogoutUser, onAttemptLogin, onResetData}) => {
   let iconElementRight = null;
@@ -23,16 +22,16 @@ const AppMainBar = ({auth, onLogoutUser, onAttemptLogin, onResetData}) => {
           anchorOrigin={{horizontal: 'right', vertical: 'top'}}
         >
           <MenuItem primaryText={`Signed in as ` + auth.displayName} disabled />
-          <MenuItem primaryText={`Reset to Default`} onTouchTap={onResetData} />
+          <MenuItem primaryText={`Reset to Default`} onClick={onResetData} />
           <Divider />
-          <MenuItem primaryText={`Log out`} onTouchTap={onLogoutUser} />
+          <MenuItem primaryText={`Log out`} onClick={onLogoutUser} />
         </IconMenu>
       );
       break;
 
     case constants.AWAITING_AUTH_RESPONSE:
       iconElementRight = (
-        <FlatButton label={`authenticating...`} icon={ <i className="fa fa-spinner fa-spin"></i> } />
+        <FlatButton label={`authenticating...`} />
       );
       break;
 
@@ -44,13 +43,11 @@ const AppMainBar = ({auth, onLogoutUser, onAttemptLogin, onResetData}) => {
   }
 
   return (
-    <MuiThemeProvider>
-      <AppBar
-        title={`ROCK - Dashboard`}
-        showMenuIconButton={false}
-        iconElementRight={iconElementRight}
-      />
-    </MuiThemeProvider>
+    <AppBar
+      title={`ROCK - Dashboard`}
+      showMenuIconButton={false}
+      iconElementRight={iconElementRight}
+    />
   );
 };
 

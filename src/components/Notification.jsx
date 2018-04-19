@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {ToastContainer, ToastMessage} from 'react-toastr';
+import {ToastContainer, ToastMessageAnimated } from 'react-toastr';
 import * as constants from '../constants';
 
-const ToastMessageFactory = React.createFactory(ToastMessage.animation);
+const ToastMessageFactory = React.createFactory(ToastMessageAnimated);
 
 class Notification extends Component {
 
@@ -20,16 +20,16 @@ class Notification extends Component {
   addNotification(title, msg, msgType) {
     switch (msgType) {
       case constants.SUCCESS:
-        this.refs.container.success(msg, title, {timeOut: 3000, extendedTimeOut: 1000});
+        this.container.success(msg, title, {timeOut: 3000, extendedTimeOut: 1000});
         break;
       case constants.WARNING:
-        this.refs.container.warning(msg, title, {timeOut: 5000, extendedTimeOut: 1000});
+        this.container.warning(msg, title, {timeOut: 5000, extendedTimeOut: 1000});
         break;
       case constants.ERROR:
-        this.refs.container.error(msg, title, {timeOut: 0, extendedTimeOut: 0});
+        this.container.error(msg, title, {timeOut: 0, extendedTimeOut: 0});
         break;
       default:
-        this.refs.container.info(msg, title, {timeOut: 3000, extendedTimeOut: 1000});
+        this.container.info(msg, title, {timeOut: 3000, extendedTimeOut: 1000});
         break;
     }
   }
@@ -37,8 +37,8 @@ class Notification extends Component {
   render () {
     return (
       <ToastContainer
+        ref={ref => this.container = ref}
         className="toast-container toast-bottom-right"
-        ref="container"
         toastMessageFactory={ToastMessageFactory}
       />
     );

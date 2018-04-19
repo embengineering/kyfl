@@ -1,0 +1,18 @@
+.progress {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  z-index: 1;
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg); }
+  .progress.red circle {
+    stroke: #E91010 !important; }
+  .progress.orange circle {
+    stroke: #FF9E1E !important; }
+  .progress.green circle {
+    stroke: #0AD54B !important; }
+
+@media screen and (max-width: 500px) {
+  .progress {
+    top: -4px;
+    left: -4px; } }
