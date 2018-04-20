@@ -27,7 +27,7 @@ const DashboardContainer = ({
   const addAction = allowEdit
     ? (
       <div className="animated bounce action-add">
-        <FloatingActionButton onClick={handleShowManageGoal}>
+        <FloatingActionButton onClick={handleShowManageGoal} secondary={true}>
           <ContentAdd />
         </FloatingActionButton>
       </div>

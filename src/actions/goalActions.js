@@ -1,6 +1,6 @@
 import * as constants from '../constants';
 import * as notificationActions from '../actions/notificationActions';
-import initialState from '../utils/initialState';
+import * as usersActions from '../actions/usersActions';
 import firebase from 'firebase';
 
 const goalsRef = firebase.database().ref().child('goals');
@@ -17,29 +17,38 @@ export const cancel = () => {
   };
 };
 
-export const enableSubmit = () => {
-  return {
-    type: constants.MANAGE_GOAL_ENABLE_SUBMIT
+export const submit = ({ limit, title }) => (dispatch, getState) => new Promise((resolve, reject) => {
+  const { auth } = getState();
+  const widget = {
+    avatar: auth.imageURL,
+    limit: Number(limit),
+    title,
+    value: 0,
+    isDeleted: 0,
+    owner: usersActions.getUserKeyFromEmail(auth.email)
   };
-};
-
-export const disableSubmit = () => {
-  return {
-    type: constants.MANAGE_GOAL_DISABLE_SUBMIT
-  };
-};
-
-export const submit = (model) => (dispatch, getState) => {
-  const widget = Object.assign({}, initialState.manageGoal.model, model);
-  goalsRef.push(widget, (error) => {
-    if (error) {
+  goalsRef.push(widget, error => {
+    if (!error) {
+      dispatch(notificationActions.success(`Yeah! New goal successfully created!`));
+      dispatch({ type: constants.MANAGE_GOAL_CANCEL });
+      resolve();
+    } else {
       dispatch(notificationActions.error(`Oh no! Firebase transaction failed abnormally!`));
       console.log('Firebase transaction failed abnormally!', error);
-    } else {
-      dispatch(notificationActions.success(`Yeah! New goal successfully created!`));
-      dispatch({
-        type: constants.MANAGE_GOAL_CANCEL
-      });
+      reject(error);
     }
   });
+});
+
+export const validateGoalForm = values => {
+  const errors = {};
+  if (!values.title) {
+    errors.title = 'Required';
+  }
+  if (!values.limit) {
+    errors.limit = 'Required';
+  } else if (isNaN(Number(values.limit))) {
+    errors.limit = 'Must be a number';
+  }
+  return errors;
 };

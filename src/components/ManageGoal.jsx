@@ -7,14 +7,17 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 
 // redux-form
-import { reduxForm, Field } from 'redux-form';
+import { Field } from 'redux-form';
 
 // redux-form-material-ui
 import { TextField } from 'redux-form-material-ui';
 
 const ManageGoal = ({
     isVisible,
-    canSubmit,
+    reset,
+    submitting,
+    onSubmit,
+    handleSubmit,
     handleCancel,
     handleValidForm,
     handleInvalidForm,
@@ -25,7 +28,7 @@ const ManageGoal = ({
     modal
     open={isVisible}
   >
-    <form autoComplete="off">
+    <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" noValidate>
       <div className="fields-wrapper">
         <Field
           className="form-field"
@@ -52,7 +55,7 @@ const ManageGoal = ({
           onClick={handleCancel}
         />
         <FlatButton
-          disabled={!canSubmit}
+          disabled={submitting}
           label="Save"
           type="submit"
           primary={true}
@@ -63,12 +66,4 @@ const ManageGoal = ({
   </Dialog>
 );
 
-ManageGoal.defaultProps = {
-  model: {}
-};
-
-const ManageGoalForm = reduxForm({
-  form: 'manageGoal'
-})(ManageGoal)
-
-export default ManageGoalForm;
+export default ManageGoal;

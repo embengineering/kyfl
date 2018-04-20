@@ -15,18 +15,6 @@ const manageGoalReducer = (state = initialState.manageGoal, action) => {
         isVisible: false
       };
 
-    case constants.MANAGE_GOAL_ENABLE_SUBMIT:
-      return {
-        ...state,
-        canSubmit: true
-      };
-
-    case constants.MANAGE_GOAL_DISABLE_SUBMIT:
-      return {
-        ...state,
-        canSubmit: false
-      };
-
     default:
       return state;
   }

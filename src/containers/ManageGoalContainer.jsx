@@ -1,14 +1,22 @@
 import {connect} from 'react-redux';
 import ManageGoal from '../components/ManageGoal.jsx';
 import * as goalActions from '../actions/goalActions';
+import { reduxForm } from 'redux-form';
 
-const mapStateToProps = ({ manageGoal }) => ({ ...manageGoal });
+const mapStateToProps = ({
+  manageGoal
+}) => ({
+  ...manageGoal
+});
 
 const mapDispatchToProps = dispatch => ({
   handleCancel: () => dispatch(goalActions.cancel()),
-  handleValidForm: () => dispatch(goalActions.enableSubmit()),
-  handleInvalidForm: () => dispatch(goalActions.disableSubmit()),
-  handleSubmitForm: model => dispatch(goalActions.submit(model))
+  onSubmit: values => dispatch(goalActions.submit(values))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageGoal);
+const ManageGoalForm = reduxForm({
+  form: 'manageGoal',
+  validate: goalActions.validateGoalForm
+})(ManageGoal);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ManageGoalForm);
