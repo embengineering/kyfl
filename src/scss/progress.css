@@ -14,5 +14,5 @@
 
 @media screen and (max-width: 500px) {
   .progress {
-    top: -4px;
-    left: -4px; } }
+    top: 0px;
+    left: 4px; } }
