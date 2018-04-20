@@ -2,6 +2,7 @@ import * as constants from '../constants';
 import * as notificationActions from '../actions/notificationActions';
 import * as usersActions from '../actions/usersActions';
 import firebase from 'firebase';
+import initialState from '../utils/initialState';
 
 const goalsRef = firebase.database().ref().child('goals');
 
@@ -20,12 +21,12 @@ export const cancel = () => {
 export const submit = ({ limit, title }) => (dispatch, getState) => new Promise((resolve, reject) => {
   const { auth } = getState();
   const widget = {
-    avatar: auth.imageURL,
+    avatar: initialState.manageGoal.defaultAvatar,
     limit: Number(limit),
     title,
     value: 0,
     isDeleted: 0,
-    owner: usersActions.getUserKeyFromEmail(auth.email)
+    owner: null
   };
   goalsRef.push(widget, error => {
     if (!error) {
