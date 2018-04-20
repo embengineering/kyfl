@@ -85,6 +85,7 @@ export const removeWidget = (key) => (dispatch, getState) => {
           console.log('Firebase transaction failed abnormally!', error);
         } else {
           dispatch(confirmationActions.cancel());
+          dispatch({ type: constants.REMOVE_GOAL, key });
           dispatch(notificationActions.success(`Goal successfully removed!`));
         }
       });

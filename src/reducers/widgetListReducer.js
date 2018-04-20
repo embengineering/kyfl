@@ -9,6 +9,11 @@ const widgetListReducer = (state = initialState.widgetList, action) => {
         ...action.data
       };
 
+    case constants.REMOVE_GOAL:
+      let newState = {...state};
+      delete newState[action.key];
+      return newState;
+
     default:
         return state;
   }
