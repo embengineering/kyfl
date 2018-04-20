@@ -4,7 +4,10 @@ import initialState from '../utils/initialState';
 const widgetListReducer = (state = initialState.widgetList, action) => {
   switch (action.type) {
     case constants.RECEIVE_WIDGETLIST_DATA:
-      return Object.assign({}, action.data);
+      return {
+        ...state,
+        ...action.data
+      };
 
     default:
         return state;

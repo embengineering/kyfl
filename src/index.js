@@ -8,6 +8,7 @@ import './utils/firebase';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 // store
 import store from './stores';
@@ -16,14 +17,21 @@ import store from './stores';
 import * as authActions from './actions/authActions';
 import * as widgetListActions from './actions/widgetListActions';
 
-// components
-import AppContainer from './containers/AppContainer.jsx';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// containers
+import AppMainBarContainer from './containers/AppMainBarContainer.jsx';
+import DashboardContainer from './containers/DashboardContainer.jsx';
+import NotificationContainer from './containers/NotificationContainer.jsx';
+import ConfirmationContainer from './containers/ConfirmationContainer.jsx';
 
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider>
-      <AppContainer />
+      <div>
+        <AppMainBarContainer />
+        <DashboardContainer />
+        <NotificationContainer />
+        <ConfirmationContainer />
+      </div>
     </MuiThemeProvider>
   </Provider>,
   document.getElementById('root')

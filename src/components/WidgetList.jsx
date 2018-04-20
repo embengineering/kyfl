@@ -5,9 +5,9 @@ import Widget from '../components/Widget.jsx';
 
 const WidgetList = ({
     widgetList,
+    allowEdit,
     onIncrease,
     onDecrease,
-    allowEdit,
     onTakeOwnership,
     onRemove
   }) => {

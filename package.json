@@ -9,8 +9,6 @@
     "create-react-class": "^15.6.3",
     "es6-promise": "^4.2.4",
     "firebase": "^4.12.1",
-    "formsy-material-ui": "^0.6.3",
-    "formsy-react": "^1.1.4",
     "isomorphic-fetch": "^2.2.1",
     "material-ui": "^0.20.0",
     "node-sass-chokidar": "^1.2.2",
@@ -21,7 +19,8 @@
     "react-scripts": "1.1.4",
     "react-toastr": "^3.0.0",
     "redux": "^4.0.0",
-    "redux-logger": "^3.0.6",
+    "redux-form": "^7.3.0",
+    "redux-form-material-ui": "^4.3.4",
     "redux-thunk": "^2.2.0",
     "toastr": "^2.1.4"
   },
@@ -38,6 +37,7 @@
     "deploy": "gh-pages -d build"
   },
   "devDependencies": {
-    "gh-pages": "^1.1.0"
+    "gh-pages": "^1.1.0",
+    "redux-devtools-extension": "^2.13.2"
   }
 }

@@ -6,47 +6,42 @@ import '../scss/form.css';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 
-// formsy material-ui
-import FormsyText from 'formsy-material-ui/lib/FormsyText';
-import Formsy from 'formsy-react';
+// redux-form
+import { reduxForm, Field } from 'redux-form';
+
+// redux-form-material-ui
+import { TextField } from 'redux-form-material-ui';
 
 const ManageGoal = ({
     isVisible,
     canSubmit,
-    model,
-    errorMessages,
     handleCancel,
     handleValidForm,
     handleInvalidForm,
     handleSubmitForm
   }) => (
   <Dialog
-    title={(model.title ? `Update` : `Add`) + ` Goal` + (model.title ? ` - ` + model.title : ``)}
+    title={`Add Goal`}
     modal
     open={isVisible}
   >
-    <Formsy
-      onValid={handleValidForm}
-      onInvalid={handleInvalidForm}
-      onValidSubmit={handleSubmitForm}
-      autoComplete="off"
-    >
-      <div href="#" className="fields-wrapper">
-        <FormsyText
+    <form autoComplete="off">
+      <div className="fields-wrapper">
+        <Field
           className="form-field"
+          component={TextField}
+          hintText="What's the goal title?"
+          label="Title"
           name='title'
           required
-          hintText="What's the goal title?"
-          floatingLabelText="Title"
         />
-        <FormsyText
+        <Field
           className="form-field"
+          component={TextField}
+          hintText="What's the goal limit?"
+          label="Limit"
           name='limit'
           required
-          hintText="What's the goal limit?"
-          floatingLabelText="Limit"
-          validations="isNumeric"
-          validationError={errorMessages.onlyNumeric}
         />
       </div>
 
@@ -64,8 +59,16 @@ const ManageGoal = ({
           keyboardFocused={true}
         />
       </div>
-    </Formsy>
+    </form>
   </Dialog>
 );
 
-export default ManageGoal;
+ManageGoal.defaultProps = {
+  model: {}
+};
+
+const ManageGoalForm = reduxForm({
+  form: 'manageGoal'
+})(ManageGoal)
+
+export default ManageGoalForm;
