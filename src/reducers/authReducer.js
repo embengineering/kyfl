@@ -11,10 +11,11 @@ const authReducer = (state = initialState.auth, action) => {
 
     case constants.LOGOUT:
       return {
-        ...initialState.auth
+        ...initialState.auth,
+        currently: constants.LOGOUT,
       };
 
-    case constants.LOGIN_USER:
+    case constants.LOGGED_IN:
       return {
         ...state,
         currently: constants.LOGGED_IN,

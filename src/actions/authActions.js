@@ -10,7 +10,7 @@ const signIn = ({
   photoURL
 }) => dispatch => {
   const auth = {
-    type: constants.LOGIN_USER,
+    type: constants.LOGGED_IN,
     uid,
     displayName,
     email,
@@ -31,7 +31,7 @@ export const startListeningToAuth = () => (dispatch, getState) => {
         email: authData.additionalUserInfo.profile.email,
         photoURL: authData.additionalUserInfo.profile.picture
       }));
-    } else if (getState().auth.currently !== constants.ANONYMOUS) {
+    } else {
       dispatch({ type: constants.LOGOUT });
     }
   }).catch(error => {

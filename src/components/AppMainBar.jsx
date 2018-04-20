@@ -35,10 +35,13 @@ const AppMainBar = ({auth, onLogoutUser, onAttemptLogin, onResetData}) => {
       );
       break;
 
-    default:
+    case constants.LOGOUT:
       iconElementRight = (
         <FlatButton label={`Log in`} onClick={onAttemptLogin} />
       );
+      break;
+
+    default:
       break;
   }
 

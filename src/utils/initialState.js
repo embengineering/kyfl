@@ -2,7 +2,7 @@ import * as constants from '../constants';
 
 export default {
   auth: {
-    currently: constants.ANONYMOUS,
+    currently: null,
     displayName: 'guest',
     uid: null,
     email: null,
