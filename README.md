@@ -1,5 +1,4 @@
 # kyfl
-============
 
 Real-time dashboard using Firebase, React, Redux, Webpack, and supports Google oAuth for editing.
 
@@ -15,6 +14,3 @@ Real-time dashboard using Firebase, React, Redux, Webpack, and supports Google o
 ---
 
 [Demo](https://embengineering.github.io/kyfl/)
-
-
-
