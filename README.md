@@ -1,9 +1,7 @@
-This project is a migration of the other repository [here](https://github.com/embengineering/kyfl-rock).
-
-kyfl
+# kyfl
 ============
 
-Real-time dashboard using Firebase, React, Redux and Webpack. Supports Google oAuth for editing.
+Real-time dashboard using Firebase, React, Redux, Webpack, and supports Google oAuth for editing.
 
 ---
 
@@ -16,7 +14,7 @@ Real-time dashboard using Firebase, React, Redux and Webpack. Supports Google oA
 
 ---
 
-[Demo](http://embengineering.com/kyfl/)
+[Demo](https://embengineering.github.io/kyfl/)
 
 
 
